@@ -1,5 +1,6 @@
 #include <iostream>
 #include "item/Item.h"
+#include <time.h>
 
 Item *items;
 
@@ -21,6 +22,7 @@ int knapsack(int w, int n)
 //Напоминалка: 10, 60; 20, 100; 30, 120;
 int main()
 {
+	clock_t start = clock();
 	printf("Enter how much elements you want to store: ");
 	int length = 0;
 	scanf("%i", &length);
@@ -36,8 +38,10 @@ int main()
 	printf("Enter knapsack space: ");
 	int space = 0;
 	scanf("%i", &space);
-
 	printf("Answer is %i\n", knapsack(space, length));
+	clock_t end = clock();
+	double seconds = (double)(end - start) / CLOCKS_PER_SEC;
+	printf("The time is %f seconds\n", seconds);
 	system("pause");
 	return 0;
 }
